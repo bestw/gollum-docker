@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ ! -f ~/.ran ]; then
+  if [ -n "${DEPLOY_PUBLIC_KEY}" ]; then
+    mkdir -p /home/git/.ssh
+    echo ${DEPLOY_PUBLIC_KEY} > /home/git/.ssh/authorized_keys
+    chmod 700 /home/git/.ssh
+    chmod 600 -R /home/git/.ssh/*
+  fi
+  touch ~/.ran
+fi
+
+if [ ! -d /wiki/.git ]; then
+  git init /wiki
+fi
+
+/usr/sbin/sshd -D &
+
+gollum --emoji --mathjax $*
