@@ -1,6 +1,6 @@
 ## gollum-docker
 
-This is a Docker image for [gollum](https://github.com/gollum/gollum), a simple wiki that stores documents in a git repository.
+This is a Docker image for [gollum](https://github.com/gollum/gollum), git and ssh-server, a simple wiki that stores documents in a git repository.
 
 ### Usage
 
